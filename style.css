@@ -1,0 +1,361 @@
+/* Progress Bar CSS Variables */
+:root {
+  --progress-bg: #ddd;
+  --progress-fill: #000;
+  --progress-transition: all 0.3s ease;
+}
+
+/* Progress bar at top */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--progress-bg);
+  z-index: 999;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--progress-fill);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* ABOVE IS SCROLLER SMOOTH BAR */
+
+
+/* CSS - Add to your style.css */
+.scroll-indicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.chevron-bob {
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transform: rotate(45deg);
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { 
+    transform: rotate(45deg) translateY(0); 
+  }
+  50% { 
+    transform: rotate(45deg) translateY(6px); 
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== NAVIGATION LINK STYLING ===== */
+/* Remove underlines from navigation links */
+nav a {
+  text-decoration: none; /* Removes underline */
+}
+
+nav a:hover {
+  text-decoration: none; /* Keeps underline removed on hover */
+}
+
+/* More specific targeting for tree-structure links inside paragraphs */
+nav p a {
+  text-decoration: none;
+}
+
+nav p a:hover {
+  text-decoration: none;
+}
+
+/* ===== CANVAS STYLING (FOR OTHER ASSIGNMENTS) ===== */
+/* Black and white overlay for all canvas containers in assignment3.html */
+#p5js-canvas-1,
+#p5js-canvas-2,
+#threejs-canvas-1,
+#threejs-canvas-2 {
+  position: relative;
+  filter: hue-rotate(180deg) contrast(1.5) brightness(1); /* Applies color filters */
+}
+
+/* ===== LINK HOVER ANIMATIONS ===== */
+/* Animation for navigation links on hover - scaling and color change effect */
+p a:hover,
+a[href="index.html"]:hover,
+a[href="assignment3.html"]:hover,
+a[href="assignment4.html"]:hover,
+a[href="assignment5.html"]:hover,
+a[href="assignment6.html"]:hover,
+a[href="assignment7.html"]:hover,
+a[href="assignment8.html"]:hover,
+a[href="credits.html"]:hover {
+  animation: linkHover 0.3s cubic-bezier(0.4,0,0.2,1); /* Smooth animation timing */
+  background: #D3D3D3; /* Light gray background on hover */
+  color: #222 !important; /* Dark text color */
+}
+
+/* Keyframe animation that scales link up and back down */
+@keyframes linkHover {
+  0% { transform: scale(1); }     /* Normal size */
+  60% { transform: scale(1.15); } /* 15% larger */
+  100% { transform: scale(1); }   /* Back to normal */
+}
+
+/* ===== DARK MODE / INVERTED STYLES ===== */
+/* Main inverted color scheme for readability */
+body.inverted { 
+  background: #222222 !important; /* Dark background */
+  color: #f5f5f5 !important;      /* Light text */
+}
+
+/* Header styling in inverted mode */
+body.inverted header { 
+  background: #222222 !important;
+  color: #ffffff !important;
+}
+
+/* Header text elements in inverted mode */
+body.inverted .header-left,
+body.inverted #invert-toggle { 
+  color: #fff !important; /* Force white text */
+}
+
+/* Main content area in inverted mode */
+body.inverted main {
+  background: #222222 !important;
+  color: #f5f5f5 !important;
+}
+
+/* All headings in inverted mode */
+body.inverted h1,
+body.inverted h2,
+body.inverted h3,
+body.inverted h4,
+body.inverted h5,
+body.inverted h6 { 
+  color: #ffffff !important;
+}
+
+/* All paragraphs and text in inverted mode */
+body.inverted p,
+body.inverted em,
+body.inverted i,
+body.inverted strong,
+body.inverted b { 
+  color: #f5f5f5 !important;
+}
+
+/* All links in inverted mode */
+body.inverted a { 
+  color: #ffffff !important;
+}
+
+/* Navigation links specifically */
+body.inverted nav a {
+  color: #ffffff !important;
+}
+
+/* Footer in inverted mode */
+body.inverted footer { 
+  background: #222222 !important;
+  color: #ffffff !important;
+}
+
+body.inverted footer a {
+  color: #ffffff !important;
+}
+
+/* Content boxes/sections in inverted mode */
+body.inverted div[style*="background: #f0f0f0"] {
+  background: #333333 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Scroll container in inverted mode */
+body.inverted .scroll-container {
+  background: #222222 !important;
+}
+
+body.inverted .scroll-text {
+  color: #f5f5f5 !important;
+}
+
+/* Tables in inverted mode */
+body.inverted table,
+body.inverted td {
+  background: #333333 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Progress bar in inverted mode */
+body.inverted .progress-bar {
+  background: #444444 !important;
+}
+
+body.inverted .progress-fill {
+  background: #ffffff !important;
+}
+
+/* Chevron indicator in inverted mode */
+body.inverted .chevron-bob {
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Logo gets color-inverted in dark mode */
+body.inverted .logo {
+  filter: invert(1) hue-rotate(180deg); /* Flips colors and adjusts hue */
+}
+
+/* ===== GLOBAL BOX MODEL ===== */
+/* Apply box-sizing to all elements for consistent sizing calculations */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== HEADER LAYOUT ===== */
+/* Fixed header that stays at top when scrolling */
+header {
+  position: fixed;        /* Stays in place during scroll */
+  top: 0;                /* Positioned at very top */
+  left: 0;               /* Aligned to left edge */
+  width: 100%;           /* Spans full browser width */
+  background-color: transparent; /* See-through background */
+  padding: 10px 20px;    /* Horizontal spacing inside header */
+  display: flex;         /* Uses flexbox layout */
+  align-items: center;   /* Vertically centers content */
+  justify-content: space-between; /* Spreads items: left-center-right */
+  z-index: 1000;         /* Appears above other content */
+  box-shadow: none;      /* No drop shadow */
+  height: 70px;          /* Fixed height */
+  box-sizing: border-box;
+}
+
+/* ===== HEADER CONTENT ===== */
+/* Left text: "Patrick Rodriguez" */
+.header-left {
+  flex: 1;               /* Takes up available left space */
+  text-align: left;      /* Aligns text to left */
+  font-weight: bold;     /* Makes text bold */
+  font-size: 1rem;       /* Standard text size */
+  color: #222;           /* Dark gray color */
+  font-family: Georgia, 'Times New Roman', Times; /* Serif font */
+}
+
+/* Center logo: GSAPP image */
+.logo {
+  flex: 0 0 auto;        /* Doesn't grow/shrink, maintains original size */
+  width: 100px;          /* Fixed width */
+  height: auto;          /* Height adjusts proportionally */
+  margin: 0 20px;        /* Space on left and right */
+}
+
+/* Right text: "INVERT" button */
+.header-right {
+  flex: 1;               /* Takes up available right space */
+  text-align: right;     /* Aligns text to right */
+  font-weight: normal;   /* Regular font weight */
+  font-size: .72rem;     /* Smaller text size */
+  margin-top: 3px;       /* Slight downward adjustment */
+  color: #222;           /* Dark gray color */
+  font-family: Helvetica, sans-serif, monospace; /* Sans-serif font */
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+/* Container for all page content */
+main {
+  max-width: 800px;      /* Maximum width for readability */
+  margin: 0 auto;        /* Centers content horizontally */
+  padding: 120px 20px 40px; /* Top padding accounts for fixed header */
+  font-size: 0.80rem;     /* Slightly smaller text */
+  line-height: 1.6;      /* Space between lines for readability */
+  font-family: Helvetica, sans-serif, monospace; /* Sans-serif font */
+}
+
+/* ===== PARAGRAPH LINK STYLING ===== */
+/* Links inside paragraphs (not navigation) */
+p a {
+  color: #000000;           /* Black color */
+  text-decoration: underline; /* Keeps underline */
+}
+
+/* Paragraph links on hover */
+p a:hover {
+  color: #000000;           /* Still black on hover */
+  text-decoration: underline; /* Still underlined on hover */
+}
+
+/* ===== CURSOR STYLING ===== */
+/* Makes INVERT button show pointer cursor */
+.header-right {
+  cursor: pointer;
+}
+
+/* ===== FOOTER STYLING ===== */
+/* Bottom section of page */
+footer {
+  text-align: center;         /* Centers content horizontally */
+  padding: 20px 0;            /* Vertical spacing */
+  background-color: #ffffff;  /* White background */
+}
+
+/* Footer links (like "Jump to Top") */
+footer a {
+  text-decoration: none;  /* No underline initially */
+  color: #555;           /* Medium gray color */
+  font-family: Helvetica, sans-serif, 'Times New Roman', Times, serif;
+  font-size: 0.9rem;     /* Slightly smaller text */
+}
+
+/* Footer links on hover */
+footer a:hover {
+  text-decoration: underline; /* Adds underline on hover */
+  color: #000;               /* Changes to black on hover */
+}
+
+/* ===== SCROLLING TEXT ANIMATION ===== */
+/* Container for the moving assignment text */
+.scroll-container {
+  width: 100%;           /* Full width */
+  overflow: hidden;      /* Hides text that goes beyond container edges */
+  background: white;     /* White background */
+  position: relative;    /* Allows positioning of child elements */
+}
+
+/* Wrapper that contains the moving text elements */
+.scroll-wrapper {
+  display: flex;         /* Flexbox layout */
+  animation: scroll-left 40s linear infinite; /* Continuous 40-second scrolling */
+  width: max-content;    /* Width adjusts to content size */
+}
+
+/* Individual text blocks that scroll */
+.scroll-text {
+  white-space: nowrap;   /* Prevents text from wrapping to new lines */
+  padding-right: 2rem;   /* Space between repeated text blocks */
+}
+
+/* Animation that moves text from right to left */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);     /* Starts at normal position */
+  }
+  100% {
+    transform: translateX(-50%);  /* Moves left by 50% to create seamless loop */
+  }
+}
+
+/* ===== UNUSED ANIMATIONS ===== */
+/* Blinking animation (currently not used) */
+@keyframes blink {
+    0%, 50% { border-color: transparent; }    /* Invisible border */
+    51%, 100% { border-color: currentColor; } /* Visible border */
+}
