@@ -112,26 +112,26 @@ a[href="credits.html"]:hover {
 /* ===== DARK MODE / INVERTED STYLES ===== */
 /* Main inverted color scheme for readability */
 body.inverted { 
-  background: #222222 !important; /* Dark background */
-  color: #f5f5f5 !important;      /* Light text */
+  background: #000000 !important; /* True black background */
+  color: #ffffff !important;      /* Pure white text */
 }
 
 /* Header styling in inverted mode */
 body.inverted header { 
-  background: #222222 !important;
+  background: #000000 !important;
   color: #ffffff !important;
 }
 
 /* Header text elements in inverted mode */
 body.inverted .header-left,
 body.inverted #invert-toggle { 
-  color: #fff !important; /* Force white text */
+  color: #ffffff !important; /* Pure white text */
 }
 
 /* Main content area in inverted mode */
 body.inverted main {
-  background: #222222 !important;
-  color: #f5f5f5 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
 /* All headings in inverted mode */
@@ -150,7 +150,7 @@ body.inverted em,
 body.inverted i,
 body.inverted strong,
 body.inverted b { 
-  color: #f5f5f5 !important;
+  color: #ffffff !important;
 }
 
 /* All links in inverted mode */
@@ -165,7 +165,7 @@ body.inverted nav a {
 
 /* Footer in inverted mode */
 body.inverted footer { 
-  background: #222222 !important;
+  background: #000000 !important;
   color: #ffffff !important;
 }
 
@@ -175,29 +175,29 @@ body.inverted footer a {
 
 /* Content boxes/sections in inverted mode */
 body.inverted div[style*="background: #f0f0f0"] {
-  background: #333333 !important;
-  color: #f5f5f5 !important;
+  background: #171717 !important; /* originally #333333 */
+  color: #ffffff !important;
 }
 
 /* Scroll container in inverted mode */
 body.inverted .scroll-container {
-  background: #222222 !important;
+  background: #000000 !important;
 }
 
 body.inverted .scroll-text {
-  color: #f5f5f5 !important;
+  color: #ffffff !important;
 }
 
 /* Tables in inverted mode */
 body.inverted table,
 body.inverted td {
-  background: #333333 !important;
-  color: #f5f5f5 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
 /* Progress bar in inverted mode */
 body.inverted .progress-bar {
-  background: #444444 !important;
+  background: #000000 !important;
 }
 
 body.inverted .progress-fill {
