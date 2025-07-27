@@ -399,7 +399,7 @@ footer a:hover {
   content: "";
   position: absolute;
   top: 0;
-  bottom: -625px; /* length of columnss*/
+  bottom: -690px; /* length of columnss*/
   left: 0px;
   border-left: 1.5px solid #bbbbbb;
 }
