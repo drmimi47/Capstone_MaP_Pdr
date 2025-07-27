@@ -118,7 +118,7 @@ body.inverted {
 
 /* Header styling in inverted mode */
 body.inverted header { 
-  background: #000000 !important;
+  background: #00000000 !important;
   color: #ffffff !important;
 }
 
