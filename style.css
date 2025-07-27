@@ -175,7 +175,7 @@ body.inverted footer a {
 
 /* Content boxes/sections in inverted mode */
 body.inverted div[style*="background: #f0f0f0"] {
-  background: #171717 !important; /* originally #333333 */
+  background: #1f1f1f !important; /* originally #333333 */
   color: #ffffff !important;
 }
 

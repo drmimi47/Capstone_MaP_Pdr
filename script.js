@@ -138,9 +138,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Auto-invert every minute
+// Keep your original timer
 setInterval(function() {
     document.body.classList.toggle("inverted");
-}, 180000); // 60 seconds * 1000 milliseconds
+}, 300000);
+
+// Add a separate 10-minute timer for rapid double-inverts
+setInterval(function() {
+    // Quick double invert
+    document.body.classList.toggle("inverted");
+    setTimeout(() => {
+        document.body.classList.toggle("inverted");
+    }, 200);
+}, 6000000); // 10 minutes
+
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
