@@ -359,3 +359,125 @@ footer a:hover {
     0%, 50% { border-color: transparent; }    /* Invisible border */
     51%, 100% { border-color: currentColor; } /* Visible border */
 }
+
+.gantt-container {
+  overflow-x: auto;
+  overflow-y: visible; /* Allow tooltips to extend vertically */
+  padding-bottom: 1rem;
+  padding-top: 30px; /* Add space at top for tooltips */
+}
+
+.gantt-wrapper {
+  width: 900px;
+}
+
+.gantt-grid-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.gantt-header-spacer {
+  width: -30px;
+  flex-shrink: 0;
+}
+
+.gantt-grid {
+  display: flex;
+  flex-grow: 1;
+}
+
+.gantt-column {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  position: relative;
+}
+
+.gantt-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -625px; /* length of columnss*/
+  left: 0px;
+  border-left: 1.5px solid #bbbbbb;
+}
+
+.gantt-chart {
+  position: relative;
+  z-index: 1;
+  padding-left: 0px;
+  overflow: visible; /* Allow tooltips to extend beyond chart */
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  min-width: 800px;
+  overflow: visible; /* Allow tooltips to extend beyond rows */
+}
+
+.gantt-label {
+  position: absolute;
+  left: 0;
+  width: 120px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.gantt-bar1 {
+  height: 24px;
+  background-color: #4285f4;
+  border-radius: 1px;
+  position: relative;
+  cursor: pointer;
+  overflow: visible; /* Allow tooltips to extend beyond bars */
+}
+
+.gantt-bar2 {
+  height: 24px;
+  background-color: #ad42f4;
+  border-radius: 1px;
+  position: relative;
+  cursor: pointer;
+  overflow: visible; /* Allow tooltips to extend beyond bars */
+}
+
+.gantt-bar3 {
+  height: 24px;
+  background-color: #f44242;
+  border-radius: 1px;
+  position: relative;
+  cursor: pointer;
+  overflow: visible; /* Allow tooltips to extend beyond bars */
+}
+
+/* Tooltips for all bar types - hidden by default */
+.gantt-bar1::after,
+.gantt-bar2::after,
+.gantt-bar3::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -35px; /* Moved further up to avoid clipping */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00000050;
+  color: #fff;
+  padding: 4px 8px; /* Slightly larger padding */
+  border-radius: 1px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9999; /* Very high z-index to ensure it's on top */
+}
+
+/* Show ALL tooltips when gantt-chart has 'show-tooltips' class */
+.gantt-chart.show-tooltips .gantt-bar1::after,
+.gantt-chart.show-tooltips .gantt-bar2::after,
+.gantt-chart.show-tooltips .gantt-bar3::after {
+  opacity: 1;
+}

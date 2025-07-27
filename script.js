@@ -142,3 +142,24 @@ setInterval(function() {
     document.body.classList.toggle("inverted");
 }, 180000); // 60 seconds * 1000 milliseconds
 
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Add click event listener to the entire gantt chart
+  const ganttChart = document.querySelector('.gantt-chart');
+  
+  if (ganttChart) {
+    ganttChart.addEventListener('click', function(e) {
+      // Check if the clicked element is any type of gantt bar
+      if (e.target.matches('.gantt-bar1, .gantt-bar2, .gantt-bar3')) {
+        console.log('Bar clicked:', e.target.className); // Debug line
+        
+        // Toggle the 'show-tooltips' class on the gantt chart
+        this.classList.toggle('show-tooltips');
+        
+        console.log('Tooltips visible:', this.classList.contains('show-tooltips')); // Debug line
+      }
+    });
+  } else {
+    console.log('Gantt chart not found'); // Debug line
+  }
+});
