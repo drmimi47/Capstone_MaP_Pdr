@@ -174,3 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Gantt chart not found'); // Debug line
   }
 });
+
+
+
