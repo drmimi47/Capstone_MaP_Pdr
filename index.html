@@ -389,7 +389,7 @@
     <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
       <p>My approach to computational design practice emphasizes creativity in combining existing software and tools to achieve novel insights. However, I believe this requires critical precision and deep understanding to avoid perpetuating harmful biases embedded in current systems. By carefully analyzing existing software and understanding what works, what fails, and what remains absent, we can develop intelligent systems that genuinely benefit humanity. I have been significantly influenced by Google's sophisticated methods for predicting user behavior in personalized advertising, which demonstrate both the potential and risks of data-driven design. At the forefront of my capstone development, I am actively considering these ethical questions and carefully crafting an approach to computational design practice that maintains high standards of social relevance and responsibility.</p>
 
-      <p><u>Bellow is my active whiteboard. A space I used for ideating, designing, and brainstorming.</u></p>
+      <p><u>Below is my active whiteboard. A space I used for ideating, designing, and brainstorming.</u></p>
 
       <iframe 
         src="https://embed.figma.com/board/X3hYe6HKcg8P2DjeR3DSkx/CDP_Personal_WhiteBoard_Sum2025?node-id=0-1&embed-host=share"
@@ -444,13 +444,24 @@
         </div>
 <!--heading-->
     <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
-      <h4>Subtitle</h4>
-      <p>Paragraph.</p>
-      
-      <p><strong>SubSubTitle:</strong> Paragraph.</p>
+        <h2>ARCHA4163 Computational Design Workflows</h2>
+        <p>Although the data of NYC drinking fountains is not particularly relevant, this assignment has helped me learn the basics of API integration, handling large data sets, and the utilization of tools like Mapbox to create a cohesive and interactive representation of open-data.</p>
+        <p><u>Below is my interactive map submitted for Geo-Spatial Structures: NYC Parks Drinking Fountains.</u></p>
+        <div id="mapbox-container-3" style="height: 500px; width: 100%; border-radius: 0px; overflow: hidden;"></div>
+
+        <div class="controls" style="margin-top: 15px; display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="searchFeature" placeholder="M, B, Q, X, R..." style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+            <button id="resetFilters" style="padding: 8px 16px; background: #6366f1; color: white; border: none; border-radius: 4px; cursor: pointer;">Reset Search</button>
+            <button id="fitToData" style="padding: 8px 16px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer;">Fit to Data</button>
+        </div>
     </div>
 
-
+    <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+        <h2>ARCHA4162 Computational Modeling</h2>
+        <p>Learning Grasshopper's visual coding interface is great practice for eventually using Dynamo for Revit and data management. On top of that, the custom tool for Computational Modeling can serve as a "proof-of-concept" where it can perform a preview of the Open Material Library tool, but it is largely for demonstration purposes rather than a software that I will continue to use in my capstone.</p>
+        <p><u>Below is my custom tool in Grasshopper that is a proof of concept for PHASE 1 of the capstone project.</u></p>
+        <img src="ComputationalDesignExperiments_CustomToolProgress0.png" alt="Custom Tool Progress" style="width: 730px; height: auto; display: block; margin: 0 auto;">
+    </div>
 
 <!--heading-->
 <div id="visual representation" style="height: 100px;"></div>
@@ -533,7 +544,7 @@
     <h4 style="margin: 0;">A context-encoded Revit plugin to build a more considerate architecture.</h4>
   </div>
   <br>
-  <p>mention what you talked with Vik, MVP analysis, open data, </p>
+  <p>asdf, mention what you talked with Vik, MVP analysis, open data, late stage pricing models</p>
 </div>
 <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
   <h2>8/8/2025 Proposal for Drawing Type</h2>
@@ -760,6 +771,10 @@
 </footer>
 
     <script src="script.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="mapBox_Sketch_03.js"></script>
 
 </body>
 </html>
