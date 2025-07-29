@@ -190,3 +190,179 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Gantt chart not found'); // Debug line
   }
 });
+
+
+// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
+// Simple split text function
+function createSplitTextAnimation(element, options = {}) {
+    const {
+        splitType = 'chars',
+        delay = 25,           // Changed from 100 to 25 (faster)
+        duration = 0.4,       // Changed from 0.6 to 0.4 (faster)
+        ease = 'power3.out',
+        threshold = 0.1,
+        onComplete = null
+    } = options;
+
+    const text = element.textContent.trim();
+    element.innerHTML = '';
+
+    let pieces = [];
+
+    if (splitType === 'chars') {
+        // Split into words first, then characters within each word
+        const words = text.split(' ');
+        
+        words.forEach((word, wordIndex) => {
+            // Create a word wrapper that can break to new lines
+            const wordWrapper = document.createElement('span');
+            wordWrapper.style.display = 'inline-block';
+            wordWrapper.style.whiteSpace = 'nowrap'; // Keep word intact
+            wordWrapper.style.marginRight = '0.3em'; // Space between words
+            
+            // Split each word into characters
+            const chars = word.split('').map(char => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.className = 'split-char';
+                span.style.display = 'inline-block';
+                wordWrapper.appendChild(span);
+                pieces.push(span); // Add to pieces array for animation
+                return span;
+            });
+            
+            element.appendChild(wordWrapper);
+        });
+    } else if (splitType === 'words') {
+        // Split into words
+        pieces = text.split(' ').map((word, index) => {
+            const span = document.createElement('span');
+            span.textContent = word;
+            span.className = 'split-char';
+            span.style.marginRight = '0.3em';
+            element.appendChild(span);
+            return span;
+        });
+    }
+
+    // Set initial state
+    gsap.set(pieces, { 
+        opacity: 0, 
+        y: 0,
+        force3D: true 
+    });
+
+    // Create scroll-triggered animation
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: element,
+            start: `top ${(1 - threshold) * 100}%`,
+            toggleActions: "play none none none",
+            once: true,
+            // markers: true, // Uncomment to see scroll trigger markers
+        },
+        onComplete: () => {
+            // Don't clear any properties - let GSAP maintain the final state
+            if (onComplete) onComplete();
+            console.log('Animation completed for:', element.textContent.substring(0, 20) + '...');
+        }
+    });
+
+    // Animate pieces in sequence
+    tl.to(pieces, {
+        opacity: 1,
+        y: 0,
+        duration: duration,
+        ease: ease,
+        stagger: delay / 1000, // Convert ms to seconds
+        force3D: true
+    });
+
+    return tl;
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all elements with split-text class
+    const splitElements = document.querySelectorAll('.split-text');
+    
+    splitElements.forEach(element => {
+        // Get options from data attributes
+        const options = {
+            splitType: element.dataset.split || 'chars',
+            delay: parseInt(element.dataset.delay) || 100,
+            duration: parseFloat(element.dataset.duration) || 0.6,
+            ease: element.dataset.ease || 'power3.out',
+            threshold: parseFloat(element.dataset.threshold) || 0.1,
+            onComplete: () => {
+                console.log('Finished animating:', element.textContent);
+            }
+        };
+
+        // Create the animation
+        createSplitTextAnimation(element, options);
+    });
+});
+
+// Optional: Add a simple version for immediate animation (no scroll trigger)
+function animateTextImmediately(selector, options = {}) {
+    const element = document.querySelector(selector);
+    if (!element) return;
+
+    const {
+        splitType = 'chars',
+        delay = 100,
+        duration = 0.6,
+        ease = 'power3.out'
+    } = options;
+
+    const text = element.textContent.trim();
+    element.innerHTML = '';
+
+    const pieces = text.split('').map(char => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? '\u00A0' : char;
+        span.style.display = 'inline-block';
+        span.style.opacity = '0';
+        span.style.transform = 'translateY(40px)';
+        element.appendChild(span);
+        return span;
+    });
+
+    gsap.to(pieces, {
+        opacity: 1,
+        y: 0,
+        duration: duration,
+        ease: ease,
+        stagger: delay / 1000,
+        onComplete: () => {
+            // Don't clear properties - let GSAP maintain final state
+        }
+    });
+}
+// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS// ANIMATED WORDS
+
+// floating book tooltip for multiple images
+const images = document.querySelectorAll('.book-image');
+const tooltip = document.getElementById('tooltip');
+
+images.forEach(image => {
+    image.addEventListener('mouseenter', function(e) {
+        const tooltipContent = this.getAttribute('data-tooltip');
+        tooltip.innerHTML = tooltipContent; // Use innerHTML to render HTML content
+        tooltip.style.display = 'block';
+    });
+
+    image.addEventListener('mousemove', function(e) {
+        tooltip.style.left = (e.pageX + 10) + 'px';
+        tooltip.style.top = (e.pageY - 30) + 'px';
+    });
+
+    image.addEventListener('mouseleave', function(e) {
+        tooltip.style.display = 'none';
+    });
+});
+// floating book tooltip

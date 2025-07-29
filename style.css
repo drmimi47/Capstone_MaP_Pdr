@@ -430,7 +430,7 @@ footer a:hover {
 .gantt-bar1 {
   height: 24px;
   background-color: #4285f4;
-  border-radius: 1px;
+  border-radius: 0px;
   position: relative;
   cursor: pointer;
   overflow: visible; /* Allow tooltips to extend beyond bars */
@@ -439,7 +439,7 @@ footer a:hover {
 .gantt-bar2 {
   height: 24px;
   background-color: #ad42f4;
-  border-radius: 1px;
+  border-radius: 0px;
   position: relative;
   cursor: pointer;
   overflow: visible; /* Allow tooltips to extend beyond bars */
@@ -448,7 +448,7 @@ footer a:hover {
 .gantt-bar3 {
   height: 24px;
   background-color: #f44242;
-  border-radius: 1px;
+  border-radius: 0px;
   position: relative;
   cursor: pointer;
   overflow: visible; /* Allow tooltips to extend beyond bars */
@@ -463,10 +463,11 @@ footer a:hover {
   top: -35px; /* Moved further up to avoid clipping */
   left: 50%;
   transform: translateX(-50%);
-  background-color: #00000050;
-  color: #fff;
+  background-color: #ffffff75;
+  border: 1px solid black;
+  color: #000000;
   padding: 4px 8px; /* Slightly larger padding */
-  border-radius: 1px;
+  border-radius: 0px;
   font-size: 12px;
   white-space: nowrap;
   opacity: 0;
@@ -487,6 +488,9 @@ footer a:hover {
   visibility: visible;
 }
 
+
+
+
 /* Hide scrollbar for webkit browsers */
 ::-webkit-scrollbar {
     display: none;
@@ -497,3 +501,47 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+/*ANIMATED WORDS*//*ANIMATED WORDS*//*ANIMATED WORDS*//*ANIMATED WORDS*/
+.split-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+}
+/*ANIMATED WORDS*//*ANIMATED WORDS*//*ANIMATED WORDS*//*ANIMATED WORDS*/
+
+
+/*floating book tooltip*/
+.tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid black;
+    padding: 6px 10px;
+    border-radius: 0px;
+    font-size: 11px;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+    /* Fixed width settings */
+    width: 600px; /* Set your desired standard width */
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Handle long words */
+}
+
+.tooltip p {
+    margin: 0;
+    padding: 0;
+}
+
+.book-image {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.book-image:hover {
+    opacity: 0.9;
+}
+/*floating book tooltip*/
