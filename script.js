@@ -366,3 +366,85 @@ images.forEach(image => {
     });
 });
 // floating book tooltip
+
+
+// bee contained in <dv>
+const container = document.querySelector('.bee-container');
+const bee = document.querySelector('.bee-tooltip');
+
+let isMouseInside = false;
+let mouseX = 0;
+let mouseY = 0;
+let beeX = 0;
+let beeY = 0;
+let angle = 0;
+
+// Add playful lag and circular flying motion to bee movement
+function animateBee() {
+    if (isMouseInside) {
+        // Smooth following with some lag for playful effect
+        const dx = mouseX - beeX;
+        const dy = mouseY - beeY;
+        
+        // Add circular flying motion around the cursor
+        angle += 0.1;
+        const radius = 30; // Distance from cursor
+        const offsetX = Math.cos(angle) * radius;
+        const offsetY = Math.sin(angle) * radius;
+        
+        // Target position: cursor + circular offset
+        const targetX = mouseX + offsetX;
+        const targetY = mouseY + offsetY;
+        
+        // Move towards target with lag
+        beeX += (targetX - beeX) * 0.08;
+        beeY += (targetY - beeY) * 0.08;
+        
+        // Keep bee within container boundaries
+        const rect = container.getBoundingClientRect();
+        const containerRect = {
+            left: 0,
+            top: 0,
+            right: container.offsetWidth,
+            bottom: container.offsetHeight
+        };
+        
+        beeX = Math.max(12, Math.min(containerRect.right - 12, beeX));
+        beeY = Math.max(12, Math.min(containerRect.bottom - 12, beeY));
+        
+        bee.style.left = beeX + 'px';
+        bee.style.top = beeY + 'px';
+    }
+    
+    requestAnimationFrame(animateBee);
+}
+
+container.addEventListener('mouseenter', (e) => {
+    isMouseInside = true;
+    bee.classList.add('active');
+    
+    // Initialize bee position
+    const rect = container.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    beeX = mouseX;
+    beeY = mouseY;
+});
+
+container.addEventListener('mouseleave', () => {
+    isMouseInside = false;
+    bee.classList.remove('active');
+});
+
+container.addEventListener('mousemove', (e) => {
+    if (isMouseInside) {
+        const rect = container.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+    }
+});
+
+// Start the animation loop
+animateBee();
+
+// bee contained in <dv>
