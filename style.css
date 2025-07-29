@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 6px;
   background: var(--progress-bg);
   z-index: 999;
 }
@@ -361,14 +361,14 @@ footer a:hover {
 }
 
 .gantt-container {
-  overflow-x: auto;
-  overflow-y: visible; /* Allow tooltips to extend vertically */
-  padding-bottom: 1rem;
+  overflow-x: hidden;
+  overflow-y: hidden; /* Allow tooltips to extend vertically !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  padding-bottom: 2rem;
   padding-top: 30px; /* Add space at top for tooltips */
 }
 
 .gantt-wrapper {
-  width: 900px;
+  width: 910px;
 }
 
 .gantt-grid-header {
@@ -475,11 +475,25 @@ footer a:hover {
   z-index: 9999; /* Very high z-index to ensure it's on top */
 }
 
-/* Show ALL tooltips when gantt-chart has 'show-tooltips' class */
+/* Show tooltips on click (existing) */
 .gantt-chart.show-tooltips .gantt-bar1::after,
 .gantt-chart.show-tooltips .gantt-bar2::after,
-.gantt-chart.show-tooltips .gantt-bar3::after {
+.gantt-chart.show-tooltips .gantt-bar3::after,
+/* Show tooltips on hover (new) */
+.gantt-chart.show-tooltips-hover .gantt-bar1::after,
+.gantt-chart.show-tooltips-hover .gantt-bar2::after,
+.gantt-chart.show-tooltips-hover .gantt-bar3::after {
   opacity: 1;
+  visibility: visible;
 }
 
+/* Hide scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    display: none;
+}
 
+/* For the entire page */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

@@ -12,7 +12,7 @@ var mapboxSketch03 = function() {
       container: 'mapbox-container-3',
       style: 'mapbox://styles/mapbox/dark-v11', // Changed to streets for better context with fountains
       center: [-73.9712, 40.7831], // Centered on Central Park
-      zoom: 12, // Default zoom (will be updated when data loads)
+      zoom: 0, // Default zoom (will be updated when data loads)
       pitch: 0,
       bearing: 0
   });
@@ -121,7 +121,7 @@ var mapboxSketch03 = function() {
               map3.fitBounds(bounds, {
                   padding: 80, // Add 80px padding around the data
                   duration: 2000, // Animate the transition over 2 seconds
-                  maxZoom: 16 // Don't zoom in too far for city-wide view
+                  maxZoom: 1 // Don't zoom in too far for city-wide view
               });
               
               console.log('Map automatically framed to fit fountain data');

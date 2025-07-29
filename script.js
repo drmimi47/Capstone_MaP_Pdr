@@ -143,22 +143,16 @@ setInterval(function() {
     document.body.classList.toggle("inverted");
 }, 300000);
 
-// Add a separate 10-minute timer for rapid double-inverts
-setInterval(function() {
-    // Quick double invert
-    document.body.classList.toggle("inverted");
-    setTimeout(() => {
-        document.body.classList.toggle("inverted");
-    }, 200);
-}, 6000000); // 10 minutes
 
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Add click event listener to the entire gantt chart
+  // Add event listeners to the entire gantt chart
   const ganttChart = document.querySelector('.gantt-chart');
   
   if (ganttChart) {
+    
+    // Click event listener (existing functionality)
     ganttChart.addEventListener('click', function(e) {
       // Check if the clicked element is any type of gantt bar
       if (e.target.matches('.gantt-bar1, .gantt-bar2, .gantt-bar3')) {
@@ -170,10 +164,29 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Tooltips visible:', this.classList.contains('show-tooltips')); // Debug line
       }
     });
+    
+    // Hover event listeners (new functionality)
+    ganttChart.addEventListener('mouseenter', function(e) {
+      // Check if hovering over any type of gantt bar
+      if (e.target.matches('.gantt-bar1, .gantt-bar2, .gantt-bar3')) {
+        console.log('Bar hovered:', e.target.className); // Debug line
+        
+        // Add hover class to show tooltips
+        this.classList.add('show-tooltips-hover');
+      }
+    }, true); // Use capture phase for better event handling
+    
+    ganttChart.addEventListener('mouseleave', function(e) {
+      // Check if leaving any type of gantt bar
+      if (e.target.matches('.gantt-bar1, .gantt-bar2, .gantt-bar3')) {
+        console.log('Bar hover ended:', e.target.className); // Debug line
+        
+        // Remove hover class to hide tooltips
+        this.classList.remove('show-tooltips-hover');
+      }
+    }, true); // Use capture phase for better event handling
+    
   } else {
     console.log('Gantt chart not found'); // Debug line
   }
 });
-
-
-
