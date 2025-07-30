@@ -448,3 +448,20 @@ container.addEventListener('mousemove', (e) => {
 animateBee();
 
 // bee contained in <dv>
+
+
+// popup menu / collapsable menu thing
+const nav = document.getElementById('letter-nav');
+
+nav.addEventListener('click', (e) => {
+  nav.classList.toggle('expanded');
+  e.stopPropagation(); // Prevent event from bubbling to document and immediately closing it
+});
+
+document.addEventListener('click', (e) => {
+  if (!nav.contains(e.target)) { // Clicked outside the nav
+    nav.classList.remove('expanded');
+  }
+});
+// popup menu / collapsable menu thing
+

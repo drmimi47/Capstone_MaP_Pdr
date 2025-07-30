@@ -582,3 +582,64 @@ body {
       100% { transform: rotate(-2deg) scale(1) translate(-2px, 0px); }
   }
 /*bee in <div> element*/
+
+/*popup menu / collapsable menu thing*/
+#letter-nav {
+  position: fixed;
+  bottom: 10px;           /* Distance from bottom of viewport */
+  right: 10px;            /* Distance from right edge of viewport */
+  width: 220px;           /* Width when expanded */
+  background: #ffffff75;  /* Semi-transparent white background */
+  border-radius: 0px;     /* No rounded corners */
+  border: 1.5px solid hsl(0, 0%, 50%); /* Light grey border collapsed box*/ 
+  overflow: hidden;
+  transition: width 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  font-size: 10px;
+  z-index: 1000;
+}
+
+#letter-nav.expanded {
+  width: 220px;
+  background: #ffffff75;
+  border-color: #000000;
+  padding: 8px 12px;
+  cursor: default;
+}
+
+#letter-nav a {
+  color: white;           /* Initially white (hidden by display:none) */
+  font: inherit;
+  text-decoration: none;
+  padding: 4px 6px;
+  display: none;
+  transition: background-color 0.2s, color 0.2s; /* Smooth background and color transition */
+  line-height: 1.1;
+}
+
+#letter-nav.expanded a {
+  display: block;
+  color: rgb(0, 0, 0);           /* Black text when expanded */
+}
+
+#letter-nav .collapsed-label {
+  color: rgba(0, 0, 0, 0.60); /* Text color with transparency (80% opacity) */
+  padding: 0px 12px;               /* Padding inside the box (top/bottom 10px, left/right 16px) */
+  margin: 0;                       /* Adjust margin around text (default 0) */
+  font-size: 10px;
+  line-height: .75;              /* Compress vertical spacing */
+  border-radius: 4px;              /* Rounded corners on the label text */
+  user-select: none;               /* Prevent text selection */
+  display: block;
+  background-color: transparent;  /* Or add a background if you want */
+}
+
+
+#letter-nav.expanded .collapsed-label {
+  display: none;  /* Hide when expanded */
+}
+/*popup menu / collapsable menu thing*/
+
