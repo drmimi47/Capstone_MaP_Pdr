@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!--ANIMATED WORDS-->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 
@@ -221,7 +222,7 @@
             </div>
             </div>
         </div>
-        <p>PHASE 1 <span style="display: inline-block; width: 12px; height: 12px; background-color: #4285f4; vertical-align: text-bottom; margin: 0 4px;"></span>, PHASE 2 <span style="display: inline-block; width: 12px; height: 12px; background-color: #ad42f4; vertical-align: text-bottom; margin: 0 4px;"></span>, TOOLKIT <span style="display: inline-block; width: 12px; height: 12px; background-color: #f44242; vertical-align: text-bottom; margin: 0 4px;"></span></p>
+        <p>Phase 1 <span style="display: inline-block; width: 12px; height: 12px; background-color: #4285f4; vertical-align: text-bottom; margin: 0 4px;"></span>, Phase 2 <span style="display: inline-block; width: 12px; height: 12px; background-color: #ad42f4; vertical-align: text-bottom; margin: 0 4px;"></span>, Toolkit <span style="display: inline-block; width: 12px; height: 12px; background-color: #f44242; vertical-align: text-bottom; margin: 0 4px;"></span>.</p>
     </div>
 
 
@@ -601,6 +602,14 @@
   <p>WORK IN PROGRESS...mention talk with Vik, MVP analysis, open data, late stage pricing models</p>
 </div>
 <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+
+    <h2>VDC Tools and Future Trends</h2>
+    <div id="d3-container-3"></div>
+    <p>Model Authoring Tool <span style="display: inline-block; width: 12px; height: 12px; background-color: #176BFF; vertical-align: text-bottom; margin: 0 4px;"></span>, Fields of Study and Collab Tools <span style="display: inline-block; width: 12px; height: 12px; background-color: #093E92; vertical-align: text-bottom; margin: 0 4px;"></span>, Capstone: Material InSite <span style="display: inline-block; width: 12px; height: 12px; background-color: #F59E42; vertical-align: text-bottom; margin: 0 4px;"></span>, Post-Production Tools <span style="display: inline-block; width: 12px; height: 12px; background-color: #ABABAB; vertical-align: text-bottom; margin: 0 4px;"></span>.</p>
+
+</div>
+
+<div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
   <h2>8/6/2025 Drawing Type</h2>
   <p>To deepen my understanding of the data trees and exchange protocols operating within and between the project's various tools, I plan to create a comprehensive diagram that adopts the visual language of web-flow diagrams and Actor-Network Theory diagrams introduced in Computational Design Workflows. This visualization will map how these systems interact and interconnect, providing me with clearer insight into the project's technical architecture and dependencies. Bellow is an example of the complexities of BIM and how I could use the large pool of existing documentation to craft a more interconnected and focused diagram for my particular interests.</p>
         <img src="Information-flow-process-of-BIM-based-project-BIM-data-weights-and-share-flow-chart.png" alt="BIM Flow Chart" style="width: 600px; height: auto; display: block; margin: 0 auto;">
@@ -832,6 +841,8 @@
 </footer>
 
     <script src="script.js"></script>
+    <script src="radial-graph.js"></script>
+
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />

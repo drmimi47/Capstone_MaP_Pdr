@@ -1,0 +1,10 @@
+source,target,strength,type
+model_authoring,logistics_scheduling,0.8,directed
+model_authoring,experience_simulation,0.8,directed
+model_authoring,analysis_coordination,0.8,directed
+model_authoring,field_management,0.8,directed
+model_authoring,cost_estimation,0.8,directed
+model_authoring,facilities_management,0.8,directed
+tracking_data,model_authoring,0.8,bidirectional
+survey,model_authoring,0.8,directed
+material_insite,model_authoring,0.8,bidirectional

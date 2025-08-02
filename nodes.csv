@@ -1,0 +1,16 @@
+id,name,connections,size,color,type
+survey,CLOUDWORKS/RECAP || Survey,1,65,#093E92,outer
+logistics_scheduling,SYNCRHO || 4D Logistics | Scheduling & | Tracking,2,65,#093E92,outer
+experience_simulation,LUMION || Experience | Simulation,1,65,#093E92,outer
+analysis_coordination,NAVISWORKS || Analysis & | Coordination,1,65,#093E92,outer
+field_management,Field Management,1,65,#093E92,outer
+cost_estimation,INNOVAYA || Cost Estimation,1,65,#093E92,outer
+facilities_management,Facilities Management,1,65,#093E92,outer
+tracking_data,EXCEL || Tracking | Data,2,65,#093E92,outer
+model_authoring,REVIT || Model Authoring | (3-D Information | Model),9,90,#176BFF,center
+distribution,Distribution,0,50,#ABABAB,Floating
+graphics_post_processing,Graphics Post Processing,0,50,#ABABAB,Floating
+organizing_graphics,Organizing Graphics,0,50,#ABABAB,floating
+project_information_management,NEWFORMA || Project | Information | Management,0,50,#ABABAB,floating
+cloud_based_collaboration,Cloud-Based Collaboration,0,50,#ABABAB,floating
+material_insite,MATERIAL IN-SITE || Material Cultural | Intelligence,1,65,#F59E42,outer
